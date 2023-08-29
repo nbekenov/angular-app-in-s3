@@ -24,7 +24,7 @@ resource "aws_cloudfront_distribution" "this" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "lexipol CDN ${var.bucket_name}"
+  comment             = "CDN ${var.bucket_name}"
   default_root_object = "index.html"
 
   aliases = var.aliases

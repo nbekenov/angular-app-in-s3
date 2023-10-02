@@ -17,3 +17,8 @@ output "cloudfront_distribution_domain_name" {
   description = "The domain name corresponding to the distribution."
   value       = aws_cloudfront_distribution.this.domain_name
 }
+
+output "cloudfront_distribution_hosted_zone_id" {
+  description = "The domain name corresponding to the distribution."
+  value       = aws_cloudfront_distribution.this.hosted_zone_id
+}

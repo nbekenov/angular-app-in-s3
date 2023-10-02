@@ -6,9 +6,12 @@ data "aws_route53_zone" "hosted_zone" {
 resource "aws_route53_record" "myapp" {
   zone_id = data.aws_route53_zone.hosted_zone.zone_id
   name    = local.subdomain
-  type    = "CNAME"
-  ttl     = 300
-  records = [module.cloudfront_s3.cloudfront_distribution_domain_name]
+  type    = "A"
+  alias {
+    name = module.cloudfront_s3.cloudfront_distribution_domain_name
+    zone_id = module.cloudfront_s3.cloudfront_distribution_hosted_zone_id
+    evaluate_target_health = false
+  }
 }
 
 resource "aws_acm_certificate" "certificate_request" {

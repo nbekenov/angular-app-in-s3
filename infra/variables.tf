@@ -5,7 +5,7 @@ variable "application_name" {
 
 variable "domain_name" {
   type    = string
-  default = "nbekenov.com"
+  default = "angular.nbekenov.com"
 }
 
 variable "bucket_name" {
